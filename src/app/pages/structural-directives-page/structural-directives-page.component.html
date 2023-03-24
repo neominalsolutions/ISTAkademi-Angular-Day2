@@ -1,1 +1,47 @@
-<p>structural-directives-page works!</p>
+<!-- mvc foreach yada react daki map yapısı -->
+<!-- *ngFor ekranda tekrar eden verileri göstermek için kullanılan bir directive -->
+<ul>
+  <li *ngFor="let name of names">
+    {{name}}
+  </li>
+</ul>
+
+<!-- let i=index dizideki elemanların indeksini almamızı sağlar -->
+<div>
+  <div *ngFor="let user of users; let i=index">
+    <div>
+      {{i}} indexsinci arkadaş {{user.firstname}} {{user.lastname}}
+
+      <!-- *ngIf ile arayüz de eğer kişini arkadaş tanımı yapıldıysa arayüze aşağıdaki kodun uygulanamasını sağlayacaktır -->
+      <!-- user.friends undefined değilse veya null değilse ekranda gösterir. -->
+      <ul *ngIf="user.friends">
+        Arkadaşları
+        <li *ngFor="let friend of user.friends">
+          {{friend}}
+        </li>
+      </ul>
+    </div>
+    <div>
+      <!-- ngIf true false olarak kullanıldı -->
+      Mesleği :
+      <span *ngIf="user.isBackendDeveloper">
+        Backend
+      </span>
+      <span *ngIf="!user.isBackendDeveloper">
+        FrontEnd
+      </span>
+    </div>
+    <div>
+      Yaşadığı şehir plaka kodu:
+      <!-- switch case  react da ngSwitchCase benzeri bir yapı -->
+      <!-- ngSwitchDefault her hangi bir case geçerli değilse bu durumda ngSwitchCase yapısı uygulanır. -->
+      <div [ngSwitch]="user.city">
+        <div *ngSwitchCase="'izmir'">35</div>
+        <div *ngSwitchCase="'ankara'">06</div>
+        <div *ngSwitchCase="'istanbul'">34</div>
+        <div *ngSwitchCase="'antalya'">07</div>
+        <div *ngSwitchDefault>{{user.city}}</div>
+      </div>
+    </div>
+  </div>
+</div>
