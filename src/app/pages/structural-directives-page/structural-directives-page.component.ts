@@ -4,7 +4,7 @@ export interface IUser {
   id: number;
   firstname: string;
   lastname: string;
-  friends?: string[];
+  friends?: string[]; // optional
   isBackendDeveloper: boolean;
   city?: string;
 }

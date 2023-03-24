@@ -1,6 +1,8 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AttributeDirectivesPageComponent } from './pages/attribute-directives-page/attribute-directives-page.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { NotfoundPageComponent } from './pages/notfound-page/notfound-page.component';
 import { StructuralDirectivesPageComponent } from './pages/structural-directives-page/structural-directives-page.component';
 
 const routes: Routes = [
@@ -11,6 +13,14 @@ const routes: Routes = [
   {
     path: 'structural-directives',
     component: StructuralDirectivesPageComponent,
+  },
+  {
+    path: '', // sayfa ilk yüklendiğinde app component bize HomePage componenti getirecek
+    component: HomePageComponent,
+  },
+  {
+    path: '**', // sayfa bulunamadı kısmını yakalamak için ** path en son routing path olarak kullanmalıyız.
+    component: NotfoundPageComponent,
   },
 ];
 
