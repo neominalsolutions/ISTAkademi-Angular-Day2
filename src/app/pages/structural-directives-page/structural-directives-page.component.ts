@@ -17,6 +17,8 @@ export class StructuralDirectivesPageComponent {
   // react map yapısına çok benzer
   names: string[] = ['nilsu', 'caner', 'alparsan', 'emre', 'emirhan'];
 
+  isVisible: boolean = false;
+
   // referance type
   users: IUser[] = [
     {
