@@ -23,6 +23,11 @@
   {{isMarried ? 'Evli':'Bekar'}}
   <!-- ternaryif ile ekran evli yada bekar yazdırdık -->
 </p>
+
+
+<div [ngStyle]="{'font-size':'12px'}">Ng Style Div</div>
+
+
 <!-- duruma göre style yerine class ile class ekle class çıkar mantıklı çalışıyor -->
 <p [ngClass]="isMarried ? 'evli':'bekar'">
   {{isMarried ? 'Evli':'Bekar'}}
